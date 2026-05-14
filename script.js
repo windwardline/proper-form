@@ -13,147 +13,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleMenu() {
         menu.classList.toggle('hidden');
-        if (menu.classList.contains('hidden')) {
+        const isExpanded = !menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', isExpanded);
+        
+        if (!isExpanded) {
             iconPath.setAttribute('d', hamburgerPath);
         } else {
             iconPath.setAttribute('d', closePath);
         }
     }
 
-    if (btn) {
-        btn.addEventListener('click', toggleMenu);
-    }
+    if (btn) btn.addEventListener('click', toggleMenu);
 
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.add('hidden');
-            if (iconPath) {
-                iconPath.setAttribute('d', hamburgerPath);
-            }
+            btn.setAttribute('aria-expanded', 'false');
+            if (iconPath) iconPath.setAttribute('d', hamburgerPath);
         });
     });
 
     // ==========================================
-    // 2. CONTEXTUAL STYLE ENGINE (Data & State)
+    // 2. CONTEXTUAL STYLE ENGINE
     // ==========================================
     const scenarioData = {
         interview: {
             title: "The Corporate Interview",
             philosophy: "The goal is to be remembered for what you said, not what you wore. You want a blank, highly professional canvas.",
             rules: [
-                "Wear a Navy or Charcoal suit. Never black (black is for tuxedos and funerals).",
-                "Crisp white dress shirt. Ensure the collar is stiff, not flimsy.",
-                "Conservative tie (solid navy, burgundy, or subtle stripe).",
-                "Black or dark brown leather lace-up shoes (Oxfords or Derbies) with a matching belt."
+                "Navy or Charcoal suit only. Never black.",
+                "Crisp white shirt. Ironed collar.",
+                "Conservative tie (solid or subtle stripe).",
+                "Black or dark brown Oxford shoes."
             ],
-            mistake: "Wearing a statement piece (flashy socks, bright tie) to 'stand out'. Stand out with your competence, not your clothes."
+            icon: '<svg class="w-12 h-12 text-slate-900 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>'
         },
         reentry: {
-            title: "The First Week Back",
-            philosophy: "Transitioning back into civilian life and the workforce requires projecting maturity, stability, and approachability.",
+            title: "First Week Back",
+            philosophy: "Presentation signals stability and respect. You want to look intentional without looking like you are trying too hard.",
             rules: [
-                "You do not need a suit for everyday life. Focus on 'Elevated Casual'.",
-                "Invest in well-fitting, flat-front chinos (navy, olive, or khaki). No cargo pockets.",
-                "Wear a fitted polo shirt or a casual button-down shirt. Tuck it in if the hem goes past mid-fly.",
-                "Clean footwear is mandatory. Fresh, minimalist white canvas sneakers or leather loafers."
+                "Dark, fitted denim (no distressing or holes).",
+                "A solid-colored polo or button-down shirt.",
+                "Clean, understated sneakers or chukka boots.",
+                "Ensure your belt matches your shoes."
             ],
-            mistake: "Wearing clothing that is too baggy. Institutional clothing is often oversized; civilian clothing should follow the lines of your body."
+            icon: '<svg class="w-12 h-12 text-slate-900 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
         },
         wedding: {
             title: "The Summer Wedding",
-            philosophy: "You must balance respect for the ceremony with the reality of the heat. Breathability is your primary objective.",
+            philosophy: "You must balance formal respect for the couple with the realities of heat and humidity. Never upstage the groom.",
             rules: [
-                "Opt for unstructured jackets made of breathable fabrics: Linen, Cotton, or Tropical Wool.",
-                "Lighter colors are acceptable: Light grey, tan, or even sage green.",
-                "Loafers (worn with no-show socks) allow your feet to breathe.",
-                "If the invitation says 'Cocktail Attire', keep the tie. If it says 'Casual', ditch the tie and unbutton the top two shirt buttons."
+                "Light gray, tan, or olive suit.",
+                "Linen or cotton-blend fabrics to breathe.",
+                "Loafers (no-show socks are acceptable).",
+                "A pocket square adds effort without heat."
             ],
-            mistake: "Wearing a heavy worsted wool business suit. You will sweat through it before the ceremony is over."
+            icon: '<svg class="w-12 h-12 text-slate-900 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>'
         }
     };
 
     const scenarioBtns = document.querySelectorAll('.scenario-btn');
-    const contentDisplay = document.getElementById('scenario-content');
-
-    function updateScenario(scenarioKey) {
-        if (!contentDisplay) return;
-        const data = scenarioData[scenarioKey];
-        
-        contentDisplay.style.opacity = 0;
-        
-        setTimeout(() => {
-            contentDisplay.innerHTML = `
-                <h3 class="font-serif-custom text-2xl font-bold text-slate-900 mb-2">${data.title}</h3>
-                <p class="text-slate-600 italic mb-6 border-l-4 border-gold pl-4">${data.philosophy}</p>
-                <h4 class="font-bold text-slate-900 mb-3 uppercase tracking-wider text-sm">The Blueprint</h4>
-                <ul class="space-y-2 mb-6">
-                    ${data.rules.map(rule => `
-                        <li class="flex items-start">
-                            <svg class="h-5 w-5 text-gold mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span class="text-slate-700">${rule}</span>
-                        </li>
-                    `).join('')}
-                </ul>
-                <div class="bg-red-50 text-red-800 p-4 rounded-sm border border-red-100">
-                    <strong class="block mb-1 text-red-900">Avoid this common mistake:</strong>
-                    <span class="text-sm">${data.mistake}</span>
-                </div>
-            `;
-            contentDisplay.style.opacity = 1;
-        }, 300);
-    }
+    const displayArea = document.getElementById('scenario-display');
 
     scenarioBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
+            // Reset styling on all buttons and ARIA states
             scenarioBtns.forEach(b => {
-                b.classList.remove('border-gold', 'bg-slate-50', 'ring-1', 'ring-gold');
-                b.classList.add('border-slate-200');
+                b.classList.remove('border-gold', 'bg-white');
+                b.setAttribute('aria-selected', 'false');
             });
             
-            const clickedBtn = e.currentTarget;
-            clickedBtn.classList.remove('border-slate-200');
-            clickedBtn.classList.add('border-gold', 'bg-slate-50', 'ring-1', 'ring-gold');
+            // Highlight clicked button
+            e.target.classList.add('border-gold', 'bg-white');
+            e.target.setAttribute('aria-selected', 'true');
 
-            const key = clickedBtn.getAttribute('data-scenario');
-            updateScenario(key);
+            // Fetch data and inject
+            const scenarioKey = e.target.getAttribute('data-scenario');
+            const data = scenarioData[scenarioKey];
+
+            displayArea.innerHTML = `
+                <div class="animate-fade-in text-center lg:text-left">
+                    ${data.icon}
+                    <h3 class="font-serif-custom text-3xl font-bold text-slate-900 mb-2">${data.title}</h3>
+                    <p class="text-slate-600 italic mb-6">"${data.philosophy}"</p>
+                    <h4 class="font-bold text-slate-900 mb-3 uppercase text-xs tracking-wider">The Rules:</h4>
+                    <ul class="space-y-2 text-slate-700 text-left list-disc pl-5">
+                        ${data.rules.map(rule => `<li>${rule}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
         });
     });
-
-    // Initialize first scenario
-    if (scenarioBtns.length > 0) {
-        updateScenario('interview');
-        scenarioBtns[0].classList.remove('border-slate-200');
-        scenarioBtns[0].classList.add('border-gold', 'bg-slate-50', 'ring-1', 'ring-gold');
-    }
 
     // ==========================================
     // 3. FIT DIAGNOSTIC QUIZ (State Machine)
     // ==========================================
     const quizData = [
         {
-            question: "Where does the shoulder seam of your jacket sit?",
+            question: "When standing naturally, where does the shoulder seam of your jacket end?",
             options: [
-                { text: "It hangs past my natural shoulder bone.", result: "too-big" },
-                { text: "Exactly on the edge of my natural shoulder bone.", result: "next" },
-                { text: "Closer to my neck; my bicep pushes the sleeve out.", result: "too-small" }
+                { text: "It hangs past my natural shoulder.", result: "too-big" },
+                { text: "It ends exactly at my natural shoulder bone.", result: "next" },
+                { text: "It pulls tightly before the end of my shoulder.", result: "too-small" }
             ]
         },
         {
-            question: "Button the top button of your jacket. How does it look?",
+            question: "Button the top button of your jacket (never the bottom). How does it feel?",
             options: [
-                { text: "There is an 'X' shape pulling tightly across my stomach.", result: "too-small" },
-                { text: "It lays flat, and I can slide a flat hand into the lapel.", result: "next" },
-                { text: "I could easily fit a grapefruit in the space.", result: "too-big" }
+                { text: "It forms an 'X' crease pulling across my stomach.", result: "too-small" },
+                { text: "It rests flat with enough room to slide a flat hand inside.", result: "next" },
+                { text: "I can pull the fabric several inches away from my chest.", result: "too-big" }
             ]
         },
         {
-            question: "Where do your trousers end when you are standing straight?",
+            question: "Look at where your trousers meet your shoes. What do you see?",
             options: [
-                { text: "They pool around my ankles with multiple folds.", result: "too-big" },
-                { text: "They just touch the top of my shoe (slight break) or sit just above it (no break).", result: "perfect" },
-                { text: "They expose my entire ankle and calf.", result: "too-small" }
+                { text: "The fabric pools heavily around my ankles.", result: "too-big" },
+                { text: "There is one slight crease (a 'half break') or it just touches the shoe.", result: "perfect" },
+                { text: "My ankles are completely exposed while standing straight.", result: "too-small" }
             ]
         }
     ];
@@ -163,49 +140,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizProgress = document.getElementById('quiz-progress');
 
     function renderQuiz(index) {
-        if (!quizContent || !quizProgress) return;
+        if (!quizContent) return;
         
-        const progressPercentage = ((index) / quizData.length) * 100;
+        // Update Progress Bar
+        const progressPercentage = (index / quizData.length) * 100;
         quizProgress.style.width = `${progressPercentage}%`;
 
-        const currentQ = quizData[index];
+        const data = quizData[index];
         
-        let html = `
-            <h3 class="font-serif-custom text-2xl text-white mb-6">Question ${index + 1} of 3</h3>
-            <p class="text-xl text-sand mb-8">${currentQ.question}</p>
-            <div class="space-y-4">
-        `;
-
-        currentQ.options.forEach((option) => {
-            html += `
-                <button class="quiz-option-btn w-full text-left p-4 rounded-sm border border-slate-600 bg-slate-800 hover:bg-slate-700 hover:border-gold transition-colors text-slate-300" data-result="${option.result}">
-                    ${option.text}
+        let optionsHtml = '';
+        data.options.forEach(opt => {
+            optionsHtml += `
+                <button class="quiz-answer-btn w-full text-left px-6 py-4 bg-slate-900 border border-slate-700 hover:border-gold hover:bg-slate-800 transition-colors rounded-sm text-slate-300 font-medium focus:outline-none focus:ring-2 focus:ring-gold" data-result="${opt.result}">
+                    ${opt.text}
                 </button>
             `;
         });
 
-        html += `</div>`;
-        quizContent.innerHTML = html;
+        quizContent.innerHTML = `
+            <div class="animate-fade-in">
+                <span class="text-gold font-bold tracking-widest text-xs uppercase mb-2 block">Step ${index + 1} of ${quizData.length}</span>
+                <h3 class="font-serif-custom text-2xl mb-6">${data.question}</h3>
+                <div class="space-y-3">
+                    ${optionsHtml}
+                </div>
+            </div>
+        `;
 
-        const optionBtns = document.querySelectorAll('.quiz-option-btn');
-        optionBtns.forEach(btn => {
+        const answerBtns = document.querySelectorAll('.quiz-answer-btn');
+        answerBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const result = e.currentTarget.getAttribute('data-result');
-                handleQuizAnswer(result);
+                const result = e.target.getAttribute('data-result');
+                handleAnswer(result);
             });
         });
     }
 
-    function handleQuizAnswer(result) {
+    function handleAnswer(result) {
         if (result === 'too-big') {
-            renderResult("Your suit is too large.", "A tailor can take in the waist or hem the pants, but if the shoulders are too wide, do not buy the jacket. Shoulder surgery on a suit is too expensive. Size down.");
+            renderResult("Size Down.", "Your garment is too large. A tailor can fix minor issues, but fixing shoulders that are too wide is prohibitively expensive. Try one size smaller.");
         } else if (result === 'too-small') {
-            renderResult("Your suit is too small.", "If the fabric is pulling and creating 'X' shapes, you are stretching the seams. A tailor can only let out a garment if there is extra fabric inside. It is safer to size up.");
+            renderResult("Size Up.", "Your garment is too tight. A tailor cannot add fabric that isn't there. It is much safer to buy the next size up and have the waist taken in.");
         } else if (result === 'next') {
             currentQuestionIndex++;
             renderQuiz(currentQuestionIndex);
         } else if (result === 'perfect') {
-            renderResult("Your fit is impeccable.", "You nailed the three hardest parts of fit: the shoulders, the waist suppression, and the trouser break. You are ready to present yourself with confidence.", true);
+            renderResult("Impeccable Fit.", "You nailed the hardest parts of tailoring: the shoulders, the waist suppression, and the trouser break. You are ready to present yourself with confidence.", true);
         }
     }
 
@@ -214,10 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const colorClass = isPerfect ? 'text-green-400' : 'text-gold';
         
         quizContent.innerHTML = `
-            <div class="text-center py-8">
+            <div class="text-center py-8 animate-fade-in">
                 <h3 class="font-serif-custom text-3xl ${colorClass} mb-4">${headline}</h3>
                 <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg mx-auto">${message}</p>
-                <button id="reset-quiz-btn" class="bg-slate-700 text-white px-6 py-3 rounded-sm hover:bg-slate-600 transition-colors">
+                <button id="reset-quiz-btn" class="bg-slate-700 text-white px-8 py-3 rounded-sm font-semibold hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white">
                     Test Another Garment
                 </button>
             </div>
@@ -236,4 +216,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('quiz-container')) {
         renderQuiz(0);
     }
+
+    // ==========================================
+    // 4. STYLE EMERGENCY ACCORDION (New Feature)
+    // ==========================================
+    const accordionBtns = document.querySelectorAll('.accordion-btn');
+    
+    accordionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all others first (optional, but good UX)
+            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('expanded'));
+            document.querySelectorAll('.accordion-btn').forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.querySelector('svg').style.transform = 'rotate(0deg)';
+            });
+
+            // If it wasn't already open, open it
+            if (!isExpanded) {
+                this.setAttribute('aria-expanded', 'true');
+                content.classList.add('expanded');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // ==========================================
+    // 5. INTERSECTION OBSERVER (Scroll Animations)
+    // ==========================================
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.fade-in-section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });

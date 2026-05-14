@@ -35,3 +35,15 @@ Entry 6: Fit Diagnostic Quiz Architecture
 AI Output: Generated a massive, static HTML form with 15 radio buttons and a "Submit" button that would require a complex validation script at the end.
 My Decision: Modified/Rejected. I rewrote the logic to be an interactive, step-by-step state machine (currentQuestionIndex). It only shows one question at a time and evaluates the result immediately.
 Why: A massive form feels like a school test. A step-by-step quiz with a dynamic progress bar feels like a premium, personalized concierge service. This required writing slightly more complex JavaScript (tracking the current index, parsing the data-result attribute on buttons, and recursively calling renderQuiz()), but the UX return on investment is massive.
+
+Week 3, Day 3: Polish, Accessibility & Deployment
+
+Entry 7: Style Emergency Toolkit & Animations
+AI Output: Suggested using a heavy external library (like GSAP or Framer Motion) to animate the page and build an emergency FAQ section across multiple HTML files.
+My Decision: Rejected. I built a custom Vanilla JS accordion using CSS max-height transitions and implemented a native IntersectionObserver API for scroll fade-ins.
+Why: Using a heavy library for simple scroll animations slows down page load times and demonstrates reliance on dependencies. Building it natively shows deep understanding of the DOM and browser APIs. Similarly, keeping the Emergency Toolkit on a single page prevents user drop-off.
+
+Entry 8: Production Build Asset Consolidation
+AI Output: AI generated separate .css and .js files for the final deployment.
+My Decision: Rejected. I manually consolidated all custom CSS into the <head> and all JavaScript to the bottom of the <body> in a single index.html file.
+Why: Since this is an MVP static site hosting on Vercel, reducing the number of HTTP network requests prevents render-blocking. This guarantees a near 100/100 Lighthouse performance score, which technical recruiters look for immediately.

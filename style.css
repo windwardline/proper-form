@@ -1,4 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
+/* Base typography classes */
 .font-serif-custom { font-family: 'Playfair Display', serif; }
 .font-sans-custom { font-family: 'Lato', sans-serif; }
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Intersection Observer Animation Classes */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Accordion transition for Emergency Toolkit */
+.accordion-content {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.accordion-content.expanded {
+    max-height: 200px; /* Arbitrary large number to allow content to show */
+    opacity: 1;
+}
+
+/* Focus states for Accessibility */
+*:focus-visible {
+    outline: 2px solid #c5a059;
+    outline-offset: 2px;
+}
