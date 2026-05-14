@@ -47,3 +47,13 @@ Entry 8: Production Build Asset Consolidation
 AI Output: AI generated separate .css and .js files for the final deployment.
 My Decision: Rejected. I manually consolidated all custom CSS into the <head> and all JavaScript to the bottom of the <body> in a single index.html file.
 Why: Since this is an MVP static site hosting on Vercel, reducing the number of HTTP network requests prevents render-blocking. This guarantees a near 100/100 Lighthouse performance score, which technical recruiters look for immediately.
+
+Entry 9: Strict Separation of Concerns (Reverting Consolidation)
+AI Output/Initial Decision: Consolidated all assets into index.html to maximize raw load speed.
+My Decision: Rejected/Reverted. I refactored the production build to strictly separate HTML (index.html), CSS (style.css), and JavaScript (script.js) into individual files.
+Why: While inline assets optimize speed, maintaining a strict Separation of Concerns is a fundamental industry standard and a strict requirement of the bootcamp grading rubric. Code maintainability, readability, and following project specifications outweigh micro-optimizations at the MVP stage.
+
+Entry 10: Native Video Asset Integration
+AI Output: Suggested using a responsive YouTube <iframe> to embed an existing grooming tutorial.
+My Decision: Rejected/Upgraded. I used a generative AI model to create a proprietary, 4K instructional video, built a local /assets pipeline, and embedded it using native HTML5 <video> tags with autoplay loop muted playsinline attributes.
+Why: Relying on third-party YouTube embeds introduces external branding, ad tracking, and the risk of dead links, which breaks the immersion of a high-end web app. Building an asset pipeline and using native HTML5 tags gives me absolute control over the UI, performance, and mobile responsiveness.
