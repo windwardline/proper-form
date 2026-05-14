@@ -224,16 +224,11 @@
                     </ol>
                 </div>
                 <!-- Enhanced Video Placeholder -->
-                <div class="w-full md:w-1/2 relative group cursor-pointer" tabindex="0" aria-label="Play grooming tutorial video">
-                    <div class="bg-slate-200 h-80 rounded-lg shadow-inner overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1621592350493-294db6e6de31?auto=format&fit=crop&q=80&w=800" alt="Barber tools" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
-                            <!-- Play Button SVG -->
-                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-slate-900 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                        </div>
-                    </div>
+                <div class="w-full md:w-1/2">
+                    <video autoplay loop muted class="w-full h-full object-cover rounded-lg shadow-lg border border-slate-200">
+                        <source src="./assets/beard-fade-tutorial.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
