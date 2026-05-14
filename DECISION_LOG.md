@@ -23,3 +23,15 @@ Entry 4: Typography and Branding
 AI Output: Used default Tailwind system sans-serif fonts for the entire document.
 My Decision: Rejected. I explicitly imported 'Playfair Display' (serif) and 'Lato' (sans-serif) from Google Fonts, added them to a custom CSS block, and mapped them in the Tailwind config.
 Why: Typography is the fastest way to establish a brand's "vibe." Standard system fonts looked too much like a tech dashboard. Using a classic Serif font for headings instantly established the "high-end editorial" aesthetic required for this project.
+
+Week 3, Day 2: Full Build Day (Adding State & Interactivity)
+
+Entry 5: The Contextual Style Engine (Occasion Recommender)
+AI Output: Suggested building a multi-page routing system or using generic window.alert() pop-ups to show different styling rules.
+My Decision: Rejected. I engineered a single-page state machine using a JavaScript data object (scenarioData) and DOM injection (innerHTML).
+Why: Multiple HTML pages cause unnecessary loading and break the seamless, app-like feel. window.alert() is incredibly unprofessional and jarring. By mapping data to click events, the user can instantly swap between advice for "The Interview" and "First Week Back" smoothly. This demonstrates competency in arrays, objects, and DOM manipulation to any FAANG reviewer.
+
+Entry 6: Fit Diagnostic Quiz Architecture
+AI Output: Generated a massive, static HTML form with 15 radio buttons and a "Submit" button that would require a complex validation script at the end.
+My Decision: Modified/Rejected. I rewrote the logic to be an interactive, step-by-step state machine (currentQuestionIndex). It only shows one question at a time and evaluates the result immediately.
+Why: A massive form feels like a school test. A step-by-step quiz with a dynamic progress bar feels like a premium, personalized concierge service. This required writing slightly more complex JavaScript (tracking the current index, parsing the data-result attribute on buttons, and recursively calling renderQuiz()), but the UX return on investment is massive.

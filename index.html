@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proper Form | The Modern Gentleman's Guide</title>
     
-    <link rel="stylesheet" href="style.css">
+    <!-- Custom Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-serif-custom { font-family: 'Playfair Display', serif; }
+        .font-sans-custom { font-family: 'Lato', sans-serif; }
+    </style>
 
     <!-- Tailwind CSS Framework -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,6 +24,7 @@
                             900: '#0f172a',
                         },
                         sand: '#e5e0d8',
+                        gold: '#c5a059',
                     }
                 }
             }
@@ -37,113 +43,106 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#summer" class="text-sm tracking-widest uppercase text-gray-600 hover:text-slate-900 transition-colors">Summer Style</a>
-                    <a href="#fit" class="text-sm tracking-widest uppercase text-gray-600 hover:text-slate-900 transition-colors">The Fit</a>
-                    <a href="#grooming" class="text-sm tracking-widest uppercase text-gray-600 hover:text-slate-900 transition-colors">Grooming</a>
+                    <a href="#scenarios" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Occasions</a>
+                    <a href="#fit-diagnostic" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Fit Check</a>
+                    <a href="#grooming" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Grooming</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle navigation menu" title="Toggle navigation menu">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" aria-label="Toggle mobile menu">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
-                <a href="#summer" class="mobile-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50">Summer Style</a>
-                <a href="#fit" class="mobile-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50">The Fit</a>
-                <a href="#grooming" class="mobile-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50">Grooming</a>
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="#scenarios" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:bg-slate-50 border-b border-gray-100">Occasions</a>
+                <a href="#fit-diagnostic" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:bg-slate-50 border-b border-gray-100">Fit Check</a>
+                <a href="#grooming" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:bg-slate-50">Grooming</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-32 pb-20 md:pt-48 md:pb-32 bg-slate-900 text-white px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="font-serif-custom text-5xl md:text-7xl font-bold mb-6 leading-tight">Master the Details.<br><span class="text-sand italic font-light">Elevate Your Presence.</span></h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                Whether you are stepping into a first interview, returning to the workforce, or attending a summer wedding, Proper Form is your trustworthy, judgment-free guide to showing up with dignity and confidence.
+    <header class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="text-gold font-bold tracking-widest text-xs uppercase mb-4 block">Master the Details</span>
+            <h1 class="font-serif-custom text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6">
+                Elevate Your Presence.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
+                Whether you are stepping into a first interview, returning to the workforce, or attending a summer event, Proper Form is your trustworthy, judgment-free guide to the unspoken rules of style.
             </p>
-            <a href="#fit" class="inline-block bg-sand text-slate-900 px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-white transition-colors duration-300">Read the Guide</a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#scenarios" class="bg-slate-900 text-white px-8 py-4 rounded-sm font-semibold hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                    Find Your Scenario
+                </a>
+                <a href="#fit-diagnostic" class="bg-white text-slate-900 border border-slate-300 px-8 py-4 rounded-sm font-semibold hover:bg-slate-50 transition-colors">
+                    Check Your Fit
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Summer Style Section (Maurice Persona) -->
-    <section id="summer" class="py-20 bg-white">
+    <!-- INTERACTIVE FEATURE 1: Contextual Style Engine -->
+    <section id="scenarios" class="py-20 bg-white border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif-custom text-4xl font-bold text-slate-900 mb-4">Summer Sartorial</h2>
-                <div class="w-24 h-1 bg-slate-900 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">Heavy wools and dark tones belong in winter. Summer requires a shift in fabric weight, breathability, and color palette. Stay cool while looking sharp.</p>
+            <div class="text-center mb-12">
+                <h2 class="font-serif-custom text-3xl md:text-4xl font-bold text-slate-900 mb-4">The Contextual Style Engine</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Select your upcoming event. We will strip away the noise and tell you exactly what to wear, and more importantly, why.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="bg-gray-50 p-10 rounded-sm border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <span class="text-sm font-bold tracking-widest text-slate-500 uppercase">Fabric</span>
-                    <h3 class="font-serif-custom text-2xl font-bold mt-2 mb-4">The Linen & Cotton Rule</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        A worsted wool suit in July is a common mistake that leads to overheating. Opt for unlined linen or cotton-blend suits. They wrinkle naturally, which adds to their charm and signals a relaxed confidence. Keep colors light like tan, olive, or light navy.
-                    </p>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Selectors -->
+                <div class="w-full md:w-1/3 flex flex-col gap-3">
+                    <button class="scenario-btn active text-left px-6 py-4 border border-slate-200 rounded-sm hover:border-slate-400 transition-all focus:outline-none" data-scenario="interview">
+                        <h3 class="font-bold text-slate-900">The Corporate Interview</h3>
+                        <p class="text-sm text-slate-500 mt-1">First impressions in formal settings.</p>
+                    </button>
+                    <button class="scenario-btn text-left px-6 py-4 border border-slate-200 rounded-sm hover:border-slate-400 transition-all focus:outline-none" data-scenario="reentry">
+                        <h3 class="font-bold text-slate-900">The First Week Back</h3>
+                        <p class="text-sm text-slate-500 mt-1">Reentering the workforce with dignity.</p>
+                    </button>
+                    <button class="scenario-btn text-left px-6 py-4 border border-slate-200 rounded-sm hover:border-slate-400 transition-all focus:outline-none" data-scenario="wedding">
+                        <h3 class="font-bold text-slate-900">The Summer Wedding</h3>
+                        <p class="text-sm text-slate-500 mt-1">Staying cool while looking sharp.</p>
+                    </button>
                 </div>
-                <div class="bg-gray-50 p-10 rounded-sm border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <span class="text-sm font-bold tracking-widest text-slate-500 uppercase">Footwear</span>
-                    <h3 class="font-serif-custom text-2xl font-bold mt-2 mb-4">Loafer Logic</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Summer is the season of the exposed ankle. Pair your tailored trousers with suede penny loafers or tassel loafers. Ditch the visible socks entirely by using "no-show" socks to protect the leather while maintaining a clean, modern aesthetic.
-                    </p>
+
+                <!-- Dynamic Content Display -->
+                <div class="w-full md:w-2/3 bg-slate-50 p-8 rounded-sm border border-slate-200 min-h-[300px] flex flex-col justify-center">
+                    <div id="scenario-content" class="transition-opacity duration-300">
+                        <!-- Content injected via JS -->
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Fit Rules Section (Eli & Raymond Personas) -->
-    <section id="fit" class="py-20 bg-slate-50 border-y border-gray-200">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif-custom text-4xl font-bold text-slate-900 mb-4">The Non-Negotiable Rules of Fit</h2>
-                <div class="w-24 h-1 bg-slate-900 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">An expensive suit that fits poorly looks cheap. An affordable suit that fits perfectly looks expensive. Master these fundamental rules for any professional setting.</p>
-            </div>
-
-            <div class="space-y-12">
-                <!-- Rule 1 -->
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <div class="flex-shrink-0 w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center font-serif-custom text-2xl font-bold">1</div>
-                    <div>
-                        <h3 class="font-serif-custom text-2xl font-bold text-slate-900 mb-2">The Bottom Button</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            On a standard two-button suit jacket, the top button is fastened when standing. The bottom button is <strong>never</strong> fastened. Fastening it pulls the fabric, ruins the natural silhouette, and instantly signals a lack of familiarity with professional wear. Unbutton completely when sitting.
-                        </p>
-                    </div>
-                </div>
+    <!-- INTERACTIVE FEATURE 2: Fit Diagnostic Tool -->
+    <section id="fit-diagnostic" class="py-20 bg-slate-900 text-sand">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif-custom text-3xl md:text-4xl font-bold text-white mb-4">Fit Diagnostic Tool</h2>
+            <p class="text-slate-400 mb-12">An expensive suit that fits poorly looks cheap. A thrifted suit that fits perfectly looks custom. Let's check your fit.</p>
+            
+            <div id="quiz-container" class="bg-slate-850 p-8 md:p-12 rounded-sm shadow-2xl border border-slate-700 relative overflow-hidden">
                 
-                <!-- Rule 2 -->
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <div class="flex-shrink-0 w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center font-serif-custom text-2xl font-bold">2</div>
-                    <div>
-                        <h3 class="font-serif-custom text-2xl font-bold text-slate-900 mb-2">The Shoulder Seam</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            This is the one element a tailor cannot easily fix. The seam of your jacket shoulder must end exactly where your natural shoulder bone ends. If it hangs over the edge, the suit is too big. If it pulls inward, it is too small. Get the shoulders right before you buy.
-                        </p>
-                    </div>
+                <!-- Progress Bar -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-slate-700">
+                    <div id="quiz-progress" class="h-full bg-gold transition-all duration-500 w-1/3"></div>
                 </div>
 
-                <!-- Rule 3 -->
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <div class="flex-shrink-0 w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center font-serif-custom text-2xl font-bold">3</div>
-                    <div>
-                        <h3 class="font-serif-custom text-2xl font-bold text-slate-900 mb-2">The Trouser Break</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            The "break" is the fold of fabric where your pants hit your shoes. Avoid the "full break" where fabric pools around your ankles. Opt for a "slight break" or "no break" where the hem sits just at the top of the shoe. This creates a clean, modern, and taller silhouette.
-                        </p>
-                    </div>
+                <!-- Quiz Content -->
+                <div id="quiz-content" class="mt-4">
+                    <!-- Injected via JS -->
                 </div>
+
             </div>
         </div>
     </section>
@@ -151,30 +150,30 @@
     <!-- Grooming Section -->
     <section id="grooming" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif-custom text-4xl font-bold text-slate-900 mb-4">Grooming Standards</h2>
-                <div class="w-24 h-1 bg-slate-900 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">Great style is easily undermined by poor grooming. Sharp lines and clean transitions show intention and respect for your environment.</p>
-            </div>
-
-            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-sm shadow-xl max-w-4xl mx-auto">
-                <h3 class="font-serif-custom text-3xl font-bold mb-6 text-sand">How to Execute a Seamless Beard Fade</h3>
-                <p class="text-gray-300 mb-8 font-light">A blocky beard neckline looks amateur. Fading the neckline into your skin creates a professional, sharp jawline suitable for any interview. Here is the foolproof method:</p>
-                
-                <ol class="space-y-6 text-gray-300 font-light">
-                    <li class="pl-4 border-l-2 border-sand">
-                        <strong class="text-white block mb-1">Step 1: Set the Hard Line</strong>
-                        Use trimmers with no guard to create a sharp line exactly one inch above your Adam's apple, following the natural curve of your jaw. Shave everything below this line completely bald.
-                    </li>
-                    <li class="pl-4 border-l-2 border-sand">
-                        <strong class="text-white block mb-1">Step 2: The First Transition</strong>
-                        Put a #2 guard on your clippers. Trim exactly one inch above the hard line you just created.
-                    </li>
-                    <li class="pl-4 border-l-2 border-sand">
-                        <strong class="text-white block mb-1">Step 3: The Blend</strong>
-                        Put a #1 guard on and close the lever to the shortest setting. Flick the clippers upward over the hard line to blur it. Open the lever halfway and flick slightly higher into the #2 section. The goal is a smooth gradient from bald skin, to short hair, to full length.
-                    </li>
-                </ol>
+            <div class="bg-sand rounded-sm p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-serif-custom text-3xl md:text-4xl font-bold text-slate-900 mb-6">Grooming: The Seamless Beard Fade</h2>
+                    <p class="text-slate-700 mb-6 leading-relaxed">
+                        A sharp presentation stops at the neckline if your grooming is neglected. Fading your beard into your neckline creates a sculpted, intentional jawline.
+                    </p>
+                    <ol class="space-y-6 text-slate-800">
+                        <li class="relative pl-8">
+                            <span class="absolute left-0 top-1 w-6 h-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                            <strong>The Base:</strong> Start with your longest guard (e.g., #3 or #4) and trim the entire beard to an even length to remove flyaways.
+                        </li>
+                        <li class="relative pl-8">
+                            <span class="absolute left-0 top-1 w-6 h-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                            <strong>The Hard Line:</strong> Take the guard off entirely (clipper closed). Look straight in the mirror. Trim a hard line exactly one inch above your Adam's apple. Shave everything below this line bald.
+                        </li>
+                        <li class="relative pl-8">
+                            <span class="absolute left-0 top-1 w-6 h-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                            <strong>The Blend:</strong> Put a #1 guard on. Open the lever. Flick the clippers upward for about half an inch above your hard line to blur the transition.
+                        </li>
+                    </ol>
+                </div>
+                <div class="w-full md:w-1/2 bg-slate-200 h-80 rounded-sm flex items-center justify-center border border-slate-300">
+                     <span class="text-slate-500 font-mono text-sm">[Video Placeholder: Grooming Tutorial]</span>
+                </div>
             </div>
         </div>
     </section>
@@ -184,15 +183,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="font-serif-custom text-2xl text-white mb-4">Proper Form.</h2>
             <p class="text-sm mb-6">A judgment-free guide to style, fit, and grooming.</p>
-            <div class="flex justify-center space-x-6 text-sm">
-                <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                <a href="#" class="hover:text-white transition-colors">Newsletter</a>
-                <a href="#" class="hover:text-white transition-colors">Contact</a>
-            </div>
             <p class="mt-8 text-xs text-slate-600">&copy; 2026 Proper Form. Created for Next Chapter.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
