@@ -21,6 +21,7 @@
                         slate: {
                             850: '#151e2e',
                             900: '#0f172a',
+                            950: '#020617',
                         },
                         sand: '#e5e0d8',
                         gold: '#c5a059',
@@ -33,207 +34,255 @@
             }
         }
     </script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans-custom antialiased">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-gold selection:text-white">
 
-    <!-- Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-900 border-b border-slate-800 transition-all duration-300 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <!-- SVG Logo -->
-                <svg class="w-8 h-8 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                <span class="font-serif-custom font-bold text-xl text-white tracking-wide uppercase">Proper Form</span>
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif-custom font-bold text-2xl tracking-tight text-slate-900">
+                        Proper<span class="text-gold">Form</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#seasonal" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Seasonal Style</a>
+                    <a href="#fit" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">The Fit Guide</a>
+                    <a href="#grooming" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Grooming</a>
+                    <a href="#roadmap" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Phase 2</a>
+                    <a href="mailto:michaellynnpeacock@gmail.com" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-md hover:bg-gold transition-colors shadow-md">
+                        Contact Creator
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#fit-guide" class="text-sm text-slate-300 hover:text-gold transition-colors uppercase tracking-wider font-semibold">Fit Guide</a>
-                <a href="#grooming" class="text-sm text-slate-300 hover:text-gold transition-colors uppercase tracking-wider font-semibold">Grooming</a>
-                <a href="#emergencies" class="text-sm text-slate-300 hover:text-gold transition-colors uppercase tracking-wider font-semibold">Toolkit</a>
-                <!-- Contact info integrated into Nav per Summer's feedback -->
-                <a href="mailto:michaellynnpeacock@gmail.com" class="text-sm text-slate-300 hover:text-gold transition-colors uppercase tracking-wider font-semibold border border-slate-600 px-4 py-2 rounded-sm hover:border-gold">Contact</a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#seasonal" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Seasonal Style</a>
+                <a href="#fit" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">The Fit Guide</a>
+                <a href="#grooming" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Grooming Fundamentals</a>
+                <a href="#roadmap" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Phase 2</a>
+                <a href="mailto:michaellynnpeacock@gmail.com" class="mobile-link block px-3 py-3 text-base font-medium text-gold bg-slate-900 rounded-md mt-2 text-center">Contact Creator</a>
             </div>
+        </div>
+    </nav>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-gold focus:outline-none" aria-label="Toggle Menu" aria-expanded="false">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-850 border-b border-slate-800">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="#fit-guide" class="mobile-link text-slate-300 hover:text-gold transition-colors uppercase tracking-wider text-sm">Fit Guide</a>
-                <a href="#grooming" class="mobile-link text-slate-300 hover:text-gold transition-colors uppercase tracking-wider text-sm">Grooming</a>
-                <a href="#emergencies" class="mobile-link text-slate-300 hover:text-gold transition-colors uppercase tracking-wider text-sm">Toolkit</a>
-                <a href="mailto:michaellynnpeacock@gmail.com" class="mobile-link text-gold transition-colors uppercase tracking-wider text-sm">Contact Me</a>
+    <!-- HEADER / HERO -->
+    <header class="relative bg-slate-900 text-white min-h-[85vh] flex items-center justify-center pt-20 bg-[url('https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&amp;w=2000&amp;auto=format&amp;fit=crop')] bg-cover bg-[center_20%] bg-no-repeat">
+        <!-- Dark gradient overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/75 to-slate-900/95"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in-section">
+            <h1 class="font-serif-custom text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Master the Details.<br>
+                <span class="text-gold italic font-light">Elevate Your Presence.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Whether you are navigating a high-stakes interview, returning to the civilian workforce, or dressing for the heat of a summer wedding, Proper Form is your authoritative blueprint for sartorial precision.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#fit" class="px-8 py-4 bg-gold text-white font-bold rounded shadow-lg hover:bg-yellow-600 transition-all transform hover:-translate-y-1">
+                    Diagnose Your Fit
+                </a>
+                <a href="#grooming" class="px-8 py-4 bg-transparent border border-slate-400 text-slate-200 font-bold rounded hover:border-white hover:text-white transition-all">
+                    Grooming Fundamentals
+                </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- ADDED HERO IMAGE: Addresses Summer's feedback to cut down white space -->
-        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex items-center justify-center min-h-[70vh] bg-slate-900 bg-[url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?auto=format&fit=crop&q=80')] bg-cover bg-center">
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-slate-900/75 z-0"></div>
-            
-            <div class="relative z-10 max-w-3xl mx-auto text-center fade-in-section">
-                <h1 class="text-4xl md:text-6xl font-serif-custom text-white mb-6 leading-tight">Master the Details. <br><span class="text-gold italic">Elevate Your Presence.</span></h1>
-                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light">
-                    Whether you are stepping into a first interview, returning to the workforce, or attending a summer wedding, Proper Form is your trustworthy, judgment-free guide to menswear basics.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#fit-guide" class="inline-block bg-gold text-slate-900 font-bold px-8 py-3 uppercase tracking-wider text-sm hover:bg-yellow-600 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">Start the Guide</a>
+        <!-- SEASONAL STYLE SECTION -->
+        <!-- FIXED: Replaced SaaS-style cards with a premium, magazine editorial layout -->
+        <section id="seasonal" class="py-24 px-6 max-w-5xl mx-auto fade-in-section">
+            <div class="mb-16">
+                <span class="text-gold font-bold tracking-widest uppercase text-xs">Volume 01 &mdash; Context & Climate</span>
+                <h2 class="font-serif-custom text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-6">Seasonal Sartorialism.</h2>
+                <div class="w-full h-px bg-slate-300"></div>
+            </div>
+
+            <!-- Editorial Block 1 -->
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-20">
+                <div class="md:w-1/3 shrink-0">
+                    <h3 class="font-serif-custom text-3xl font-bold text-slate-900 leading-tight">The High-Summer<br><span class="text-slate-500 italic font-normal">Cipher</span></h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-slate-700 leading-relaxed mb-6 drop-cap text-lg">
+                        July is merciless to unprepared wool. When the invitation dictates "Cocktail Attire" for a warm-weather event, you must pivot to open-weave architectures. A summer suit is not simply a lighter color; it is a fundamental shift in textile engineering. The objective is to appear effortlessly collected, not visibly suffocating.
+                    </p>
+                    <div class="space-y-4 text-slate-700 border-l-2 border-gold pl-6">
+                        <p><strong class="font-bold text-slate-900">The Fabric:</strong> Embrace unlined high-twist fresco wool or linen-silk blends. You must accept the wrinkles of linen; they do not signal sloppiness, but rather a relaxed, intentional confidence.</p>
+                        <p><strong class="font-bold text-slate-900">The Palette:</strong> Sartorial daylight demands lighter tones. Rely on tobacco brown, stone grey, or French navy. Severe black under a July sun looks like a uniform, not a choice.</p>
+                        <p><strong class="font-bold text-slate-900">The Footwear:</strong> Unlined suede loafers (no-show socks are mandatory) or expertly polished calfskin derbies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-24 h-px bg-slate-200 mx-auto mb-20"></div>
+
+            <!-- Editorial Block 2 -->
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+                <div class="md:w-1/3 shrink-0">
+                    <h3 class="font-serif-custom text-3xl font-bold text-slate-900 leading-tight">The Corporate<br><span class="text-slate-500 italic font-normal">Arena</span></h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-slate-700 leading-relaxed mb-6 drop-cap text-lg">
+                        Authority is quiet. In the corporate arena, the objective is psychological presence through immaculate restraint. You want to be remembered for your intellect and capability, not a novelty accessory or a loud pattern. Precision is your primary currency, and fit is your armor.
+                    </p>
+                    <div class="space-y-4 text-slate-700 border-l-2 border-gold pl-6">
+                        <p><strong class="font-bold text-slate-900">The Suit:</strong> Navy or charcoal two-piece in worsted wool. Demand at least a half-canvas construction so the lapel rolls elegantly over your chest rather than creasing flat and lifeless.</p>
+                        <p><strong class="font-bold text-slate-900">The Geometry:</strong> A crisp white semi-spread collar must sit flush against your collarbone, its points tucked cleanly under the jacket lapel. A visible gap suggests a borrowed or ill-fitting shirt.</p>
+                        <p><strong class="font-bold text-slate-900">The Details:</strong> Match your leathers ruthlessly. Tie width must harmonize perfectly with your jacket's lapel width. Opt for a textured silk grenadine tie for quiet, undeniable authority.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- UPDATED FIT GUIDE SECTION -->
-        <section id="fit-guide" class="py-20 px-6 bg-white">
+        <!-- THE FIT GUIDE (Interactive) -->
+        <section id="fit" class="py-24 px-6 bg-slate-900 text-white">
             <div class="max-w-4xl mx-auto fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-serif-custom text-slate-900 mb-2 border-b-2 border-gold inline-block pb-2">The Fit Diagnostic</h2>
-                <p class="text-slate-600 mb-8 mt-4">The difference between looking sloppy and looking sharp isn't the price tag—it's the fit. Focus on these core areas.</p>
-                
-                <!-- Added Clarification Callout per Summer's Feedback -->
-                <div class="bg-slate-100 border-l-4 border-gold p-6 mb-10 rounded-r-md shadow-sm">
-                    <h4 class="font-bold text-slate-900 flex items-center mb-2">
-                        <svg class="w-5 h-5 mr-2 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Measurement Substitution Pro-Tip
+                <div class="mb-12">
+                    <span class="text-gold font-bold tracking-widest uppercase text-xs">Volume 02 &mdash; The Mathematics of Menswear</span>
+                    <h2 class="font-serif-custom text-4xl md:text-5xl font-bold mb-4 mt-2">The Fit Diagnostic.</h2>
+                    <p class="text-slate-400 text-lg max-w-2xl">A $5,000 bespoke suit that fits poorly looks cheap. A $200 thrifted suit tailored flawlessly acts as executive armor. Master the geometry of your garments.</p>
+                </div>
+
+                <div class="bg-slate-800/50 border-l-4 border-gold p-6 md:p-8 rounded-r-lg mb-12 shadow-lg backdrop-blur-sm">
+                    <h4 class="font-serif-custom text-xl font-bold text-gold flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Diagnostic Pro-Tip: Sizing Substitutions
                     </h4>
-                    <p class="text-slate-700 text-sm">Don't have a new suit to measure yet? No problem. Use an old sports coat, a structured button-down shirt, or even a denim jacket as a baseline. The rules for where a shoulder seam should hit your body remain exactly the same across garments.</p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Don't own a soft tailor's tape? You can still run this diagnostic. Retrieve an old sports coat, a denim jacket, or a structured button-down that you already own. Put it on and use the guidelines below to identify exactly where the fabric pulls, sags, or bunches. Take those specific notes directly to an affordable tailor, or use them to recalibrate your off-the-rack sizing.
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Accordion UI for Fit Checks -->
+                <div id="toolkit" class="space-y-4">
+                    <!-- Shoulders -->
+                    <div class="border border-slate-700/50 rounded-lg bg-slate-850 overflow-hidden">
+                        <button class="accordion-btn w-full px-6 md:px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-800 transition-colors" aria-expanded="false">
+                            <span class="font-bold text-xl font-serif-custom text-white tracking-wide">1. The Shoulders (The Anchor)</span>
+                            <svg class="w-6 h-6 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 md:px-8 bg-slate-900/50 text-slate-300 border-t border-slate-700/50">
+                            <p class="mb-4 leading-relaxed"><strong class="text-white">The Check:</strong> The dreaded "shoulder divot" occurs when the armhole is cut too low or the internal pad extends past your natural acromion bone. Stand naturally against a wall. If the shoulder pad touches the wall before your actual bicep does, the jacket is structurally oversized.</p>
+                            <p class="leading-relaxed"><strong class="text-white">The Fix:</strong> Always buy a jacket based entirely on the shoulder fit. Tailors can easily dart the waist or taper sleeves, but restructuring the shoulders of a jacket requires dismantling the entire garment—a process that is prohibitively expensive and rarely successful.</p>
+                        </div>
+                    </div>
+
+                    <!-- The Break -->
+                    <div class="border border-slate-700/50 rounded-lg bg-slate-850 overflow-hidden">
+                        <button class="accordion-btn w-full px-6 md:px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-800 transition-colors" aria-expanded="false">
+                            <span class="font-bold text-xl font-serif-custom text-white tracking-wide">2. Trouser Break & Taper</span>
+                            <svg class="w-6 h-6 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 md:px-8 bg-slate-900/50 text-slate-300 border-t border-slate-700/50">
+                            <p class="mb-4 leading-relaxed"><strong class="text-white">The Check:</strong> The "break" is the precise fold of fabric above the vamp of your shoe. A pooling "Full Break" ruins vertical lines, making the wearer appear shorter and undeniably untidy.</p>
+                            <p class="leading-relaxed"><strong class="text-white">The Fix:</strong> Demand a "Slight Break" or "No Break" from your tailor. The hem should elegantly rest on the shoe without buckling the crease. Crucially, if opting for no break, ensure the tailor aggressively tapers the hem opening (roughly 7.5 inches) to prevent the fabric from flapping around your ankle.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sleeve Length -->
+                    <div class="border border-slate-700/50 rounded-lg bg-slate-850 overflow-hidden">
+                        <button class="accordion-btn w-full px-6 md:px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-800 transition-colors" aria-expanded="false">
+                            <span class="font-bold text-xl font-serif-custom text-white tracking-wide">3. Sleeve Exposure (The Linen Flash)</span>
+                            <svg class="w-6 h-6 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 md:px-8 bg-slate-900/50 text-slate-300 border-t border-slate-700/50">
+                            <p class="mb-4 leading-relaxed"><strong class="text-white">The Check:</strong> With your arms resting naturally at your sides, the jacket sleeve should terminate precisely at your prominent wrist bone. Not the base of your thumb. The wrist bone.</p>
+                            <p class="leading-relaxed"><strong class="text-white">The Fix:</strong> Exactly 1/4 inch to 1/2 inch of your shirt cuff should be visible beyond the jacket sleeve. This "flash" of linen or cotton frames the hand, breaks up the heavy color block of the suit, and signals a man who pays attention to the minutiae.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GROOMING FUNDAMENTALS -->
+        <section id="grooming" class="py-24 px-6 max-w-6xl mx-auto fade-in-section">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <span class="text-gold font-bold tracking-widest uppercase text-xs">Volume 03 &mdash; The Canvas</span>
+                    <h2 class="font-serif-custom text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-8">Grooming Fundamentals.</h2>
+                    <p class="text-slate-700 mb-8 leading-relaxed text-lg">
+                        Clothing merely covers the body; your grooming is the absolute focal point of human interaction. A flawless, tailored suit cannot out-maneuver an unkempt neckline, dry skin, or poorly managed hair. 
+                    </p>
                     <div class="space-y-6">
-                        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                            <h3 class="font-serif-custom text-xl text-slate-900 mb-3 flex items-center"><span class="bg-gold text-white text-xs font-bold px-2 py-1 rounded mr-3">1</span> The Shoulder Seam</h3>
-                            <p class="text-slate-600 text-sm">The seam connecting the sleeve to the jacket must end exactly at the edge of your shoulder bone. If it extends past, the suit is too large. If it pulls tightly, it's too small.</p>
+                        <div class="pl-6 border-l-2 border-slate-200">
+                            <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-2">The Architectural Beard Line</h4>
+                            <p class="text-slate-600 leading-relaxed"><strong class="text-slate-800">The Two-Finger Rule:</strong> Place two fingers horizontally directly above your Adam's apple. That is your baseline. Shave everything below it bare. A neckbeard eradicates the jawline; a precise fade creates immediate architectural structure for your face.</p>
                         </div>
-                        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                            <h3 class="font-serif-custom text-xl text-slate-900 mb-3 flex items-center"><span class="bg-gold text-white text-xs font-bold px-2 py-1 rounded mr-3">2</span> The Trouser Break</h3>
-                            <p class="text-slate-600 text-sm">The "break" is the fold in the fabric where your pants hit your shoes. For a modern, professional look, aim for a "slight break"—the pant should just gently rest on the top of your shoe laces.</p>
+                        <div class="pl-6 border-l-2 border-slate-200">
+                            <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-2">The Invisible Armor</h4>
+                            <p class="text-slate-600 leading-relaxed"><strong class="text-slate-800">Skincare Protocol:</strong> Abandon harsh bar soaps immediately. Utilize a dedicated chemical exfoliant cleanser followed by an SPF 30+ moisturizer. Dull, ashy, or inflamed skin reflects poorly under abrasive office lighting. Treat your dermis like an asset.</p>
                         </div>
                     </div>
-                    
-                    <div class="bg-slate-900 rounded-lg p-8 text-white shadow-xl flex flex-col justify-center">
-                        <h3 class="font-serif-custom text-2xl text-gold mb-4">The Golden Rule</h3>
-                        <p class="text-slate-300 italic mb-6">"You can buy a $200 suit and spend $50 on tailoring, and it will look infinitely better than a $2,000 suit off the rack."</p>
-                        <ul class="space-y-3 text-sm text-slate-400">
-                            <li class="flex items-start"><svg class="w-5 h-5 text-gold mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Tailors can easily shorten sleeves.</li>
-                            <li class="flex items-start"><svg class="w-5 h-5 text-gold mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Tailors can easily hem pants.</li>
-                            <li class="flex items-start text-red-400"><svg class="w-5 h-5 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Tailors CANNOT easily fix wide shoulders.</li>
-                        </ul>
+                </div>
+                
+                <!-- Native Video Asset -->
+                <div class="md:w-1/2 w-full">
+                    <div class="relative rounded-sm overflow-hidden shadow-2xl border border-slate-200 bg-black aspect-video flex items-center justify-center group">
+                        <video controls class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1621509307736-6e541a029314?q=80&w=2070&auto=format&fit=crop">
+                            <source src="assets/beard-fade-tutorial.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                    <p class="text-right text-sm text-slate-400 mt-4 italic font-serif-custom">Demo: Blending a professional beard fade at home.</p>
                 </div>
             </div>
         </section>
 
-        <!-- GROOMING SECTION -->
-        <section id="grooming" class="py-20 px-6 bg-sand">
-            <div class="max-w-4xl mx-auto fade-in-section">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-serif-custom text-slate-900 mb-4">Grooming Fundamentals</h2>
-                    <p class="text-slate-700 max-w-2xl mx-auto">Your clothing is only half the presentation. Clean, intentional grooming signals discipline and respect for the environment you are entering.</p>
+        <!-- ROADMAP / COMING SOON SECTION -->
+        <section id="roadmap" class="py-20 px-6 bg-slate-100 border-t border-slate-200">
+            <div class="max-w-6xl mx-auto fade-in-section">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif-custom text-3xl md:text-4xl font-bold text-slate-900 mb-4">Phase 02: In Development</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto">We are actively engineering the next generation of style tools. Here is what is landing in the next software update.</p>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
-                    <div class="w-full md:w-1/2 bg-slate-900 relative min-h-[300px] flex items-center justify-center p-6 border-b md:border-b-0 md:border-r border-slate-700">
-                        <!-- AI Video Placeholder (From Next Chapter specs) -->
-                        <div class="text-center">
-                            <svg class="w-16 h-16 text-slate-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <p class="text-slate-400 font-mono text-sm uppercase">Asset Pipeline:<br>beard-fade-tutorial.mp4<br><span class="text-gold mt-2 block">(Autoplay Loop Muted)</span></p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                        <div class="text-slate-300 mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                    </div>
-                    <div class="w-full md:w-1/2 p-8">
-                        <h3 class="font-serif-custom text-2xl text-slate-900 mb-6">The Seamless Beard Fade</h3>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-bold text-slate-800 uppercase tracking-wider text-xs mb-1">Step 1: The Base</h4>
-                                <p class="text-slate-600 text-sm">Trim your entire beard to a uniform length using a #3 or #4 guard. This creates an even canvas.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 uppercase tracking-wider text-xs mb-1">Step 2: The Transition</h4>
-                                <p class="text-slate-600 text-sm">Drop down one guard size (#2) and trim from the bottom of your neck up to your jawline, flicking outward as you reach the jaw.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 uppercase tracking-wider text-xs mb-1">Step 3: The Hard Line</h4>
-                                <p class="text-slate-600 text-sm">Remove the guard completely. Create a sharp, defined line just above your Adam's apple. Shave everything below it clean.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EMERGENCY TOOLKIT SECTION -->
-        <section id="emergencies" class="py-20 px-6 bg-slate-900 text-white">
-            <div class="max-w-3xl mx-auto fade-in-section">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-serif-custom text-gold mb-4">Style Emergency Toolkit</h2>
-                    <p class="text-slate-400">Quick, improvised fixes for when things go wrong right before the big moment.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- Accordion Item 1 -->
-                    <div class="border border-slate-700 rounded bg-slate-850">
-                        <button class="accordion-btn w-full px-6 py-4 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false">
-                            <span class="font-semibold">Wrinkled shirt, but no iron available?</span>
-                            <svg class="w-5 h-5 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 text-slate-400 text-sm bg-slate-900">
-                            Hang the shirt in the bathroom, close the door, and run the shower on the hottest setting for 10-15 minutes. The steam will release the worst of the wrinkles. Smooth the fabric downward with your hands while it's still damp.
-                        </div>
+                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Visual AI Fit Checker</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">Upload a mirror photo for automated, algorithmic feedback on jacket drape, collar gap, and trouser break.</p>
                     </div>
 
-                    <!-- Accordion Item 2 -->
-                    <div class="border border-slate-700 rounded bg-slate-850">
-                        <button class="accordion-btn w-full px-6 py-4 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false">
-                            <span class="font-semibold">Scuffed leather shoes before an interview?</span>
-                            <svg class="w-5 h-5 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 text-slate-400 text-sm bg-slate-900">
-                            If you don't have shoe polish, use a tiny amount of unscented hand lotion or lip balm on a paper towel or cloth. Rub it into the scuff in tight circles to moisturize the leather and hide the scratch temporarily.
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                        <div class="text-slate-300 mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                         </div>
+                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Curated Toolsets</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">Integrated API fetching for verified, affordable tailoring tools, precision clippers, and entry-level shirting.</p>
                     </div>
 
-                    <!-- Accordion Item 3 -->
-                    <div class="border border-slate-700 rounded bg-slate-850">
-                        <button class="accordion-btn w-full px-6 py-4 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false">
-                            <span class="font-semibold">Coffee spill on your tie or shirt?</span>
-                            <svg class="w-5 h-5 text-gold transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 text-slate-400 text-sm bg-slate-900">
-                            Do not rub. Blot the stain immediately with a dry napkin to absorb the liquid. Then, blot gently with cold water (never hot, which sets the stain) and club soda if available. If on a tie, try to adjust the jacket to cover it.
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                        <div class="text-slate-300 mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ADDED: COMING SOON / ROADMAP (Phillip & Summer Feedback) -->
-        <section id="roadmap" class="py-16 px-6 bg-slate-50 border-t border-slate-200">
-            <div class="max-w-4xl mx-auto fade-in-section text-center">
-                <span class="text-gold font-bold tracking-widest uppercase text-xs">The Roadmap</span>
-                <h2 class="text-2xl md:text-3xl font-serif-custom text-slate-900 mt-2 mb-8">Features in Development</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div class="p-6 border border-slate-200 rounded-lg bg-white shadow-sm opacity-75">
-                        <svg class="w-8 h-8 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <h4 class="font-bold text-slate-800 text-sm mb-2">Visual AI Checker</h4>
-                        <p class="text-xs text-slate-500">Upload a photo to get immediate, automated feedback on specific fit problem areas.</p>
-                    </div>
-                    <div class="p-6 border border-slate-200 rounded-lg bg-white shadow-sm opacity-75">
-                        <svg class="w-8 h-8 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                        <h4 class="font-bold text-slate-800 text-sm mb-2">Curated Shop</h4>
-                        <p class="text-xs text-slate-500">A verified directory of affordable, high-quality brands and tailoring tools.</p>
-                    </div>
-                    <div class="p-6 border border-slate-200 rounded-lg bg-white shadow-sm opacity-75">
-                        <svg class="w-8 h-8 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-                        <h4 class="font-bold text-slate-800 text-sm mb-2">Fabric Care DB</h4>
-                        <p class="text-xs text-slate-500">A searchable database for stain removal and seasonal fabric maintenance.</p>
+                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Fabric Care DB</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">A highly searchable database for textile maintenance, precise stain removal, and seasonal storage protocols.</p>
                     </div>
                 </div>
             </div>
@@ -242,18 +291,21 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-10 px-6">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
-            <div class="mb-4 md:mb-0">
-                &copy; 2026 Proper Form. Built by Michael Peacock.
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+            <div class="mb-6 md:mb-0 flex flex-col text-center md:text-left">
+                <span class="font-serif-custom text-xl text-slate-300 mb-2">Proper Form.</span>
+                <span>&copy; 2026. Built by Windward Line, in collaboration with Next Chapter.</span>
             </div>
-            <!-- FIXED: Broken Links (Summer Feedback) -->
             <div class="flex space-x-6">
-                <a href="https://github.com/windwardline" target="_blank" rel="noopener" class="hover:text-gold transition-colors" aria-label="GitHub">GitHub</a>
-                <a href="https://www.linkedin.com/in/michaellynnpeacock/" target="_blank" rel="noopener" class="hover:text-gold transition-colors" aria-label="LinkedIn">LinkedIn</a>
-                <a href="mailto:michaellynnpeacock@gmail.com" class="hover:text-gold transition-colors" aria-label="Email">Email</a>
+                <!-- GitHub Repository Link -->
+                <a href="https://github.com/windwardline/proper-form-style-guide" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-gold transition-colors" aria-label="GitHub Repository">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
