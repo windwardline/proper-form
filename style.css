@@ -2,9 +2,9 @@
         .font-serif-custom { font-family: 'Playfair Display', serif; }
         .font-sans-custom { font-family: 'Lato', sans-serif; }
 
-        /* FIXED: Anchor link offset (Summer's Feedback) */
+        /* Anchor link offset - prevents sticky nav from covering section titles */
         html { 
-            scroll-padding-top: 5rem; /* Accounts for the fixed navbar height */
+            scroll-padding-top: 6rem; 
         }
 
         /* Custom Scrollbar for a premium feel */
@@ -33,14 +33,20 @@
             overflow: hidden;
         }
         .accordion-content.expanded {
-            max-height: 400px; 
+            max-height: 600px; 
             opacity: 1;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
-
-        /* Focus states for Accessibility */
-        *:focus-visible {
-            outline: 2px solid #c5a059;
-            outline-offset: 2px;
+        
+        /* Editorial Drop Cap */
+        .drop-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #0f172a;
+            float: left;
+            line-height: 1;
+            padding-right: 0.5rem;
+            padding-top: 0.25rem;
         }

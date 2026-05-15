@@ -34,24 +34,24 @@
             });
 
             // ==========================================
-            // 2. ACCORDION LOGIC
+            // 2. ACCORDION LOGIC (Emergency Toolkit)
             // ==========================================
             const accordionBtns = document.querySelectorAll('.accordion-btn');
 
             accordionBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
+                    const isExpanded = content.classList.contains('expanded');
                     const icon = this.querySelector('svg');
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close all others first
+
+                    // Close all active accordions first for clean UX
                     document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('expanded'));
                     document.querySelectorAll('.accordion-btn').forEach(b => {
                         b.setAttribute('aria-expanded', 'false');
                         b.querySelector('svg').style.transform = 'rotate(0deg)';
                     });
 
-                    // If it wasn't already open, open it
+                    // If it wasn't already open, open the clicked one
                     if (!isExpanded) {
                         this.setAttribute('aria-expanded', 'true');
                         content.classList.add('expanded');
