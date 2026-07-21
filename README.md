@@ -62,3 +62,13 @@ To run this project locally and inspect the codebase:
 1. Clone the repository:
    ```bash
    git clone [https://github.com/windwardline/proper-form-style-guide.git](https://github.com/windwardline/proper-form-style-guide.git)
+
+## Continuous integration
+
+Every push and pull request validates the markup (`html-validate`) and checks
+that `script.js` parses.
+
+One rule is relaxed in `.htmlvalidate.json`: **`no-autoplay`**. The hero video
+is decorative and carries `muted` alongside `autoplay`. That rule exists to
+prevent unexpected audio, which a muted background loop cannot produce —
+disabling it preserves the design rather than working around a real defect.
