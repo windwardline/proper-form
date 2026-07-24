@@ -34,7 +34,7 @@ To guarantee 100% reliability during live technical demonstrations, Phase 1 was 
 * **Frontend Logic:** Vanilla JavaScript (ES6+)
 * **Styling:** Tailwind CSS (via CDN) + Custom Global CSS for keyframe animations, typography (drop caps), and scroll padding.
 * **Structure:** Semantic HTML5
-* **Hosting:** GitHub Pages / Vercel
+* **Hosting:** Vercel — live at [proper-form.windwardline.com](https://proper-form.windwardline.com)
 
 ### Core Technical Features
 
