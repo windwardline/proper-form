@@ -1,3 +1,24 @@
+        /* Keyboard skip link: visually hidden until focused */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            z-index: 100;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.75rem 1.25rem;
+        }
+        .skip-link:focus {
+            left: 1rem;
+            top: 1rem;
+        }
+
+        /* Hero backdrop (kept out of utility classes so the URL survives the
+           Tailwind build unescaped) */
+        .hero-photo {
+            background-image: url('https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=2000&auto=format&fit=crop');
+            background-position: center 20%;
+        }
+
         /* Base typography classes */
         .font-serif-custom { font-family: 'Playfair Display', serif; }
         .font-sans-custom { font-family: 'Lato', sans-serif; }
