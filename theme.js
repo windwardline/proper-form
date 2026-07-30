@@ -2,6 +2,7 @@
    committed Tailwind build stays untouched; runs blocking in <head>. */
 (function () {
   var root = document.documentElement;
+  root.classList.add("js"); /* arms the scroll reveals; without JS they stay visible */
   var KEY = "pf-theme";
   var mq = window.matchMedia("(prefers-color-scheme: dark)");
 
