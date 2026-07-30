@@ -12,12 +12,26 @@ card layouts.
 
 ```
 index.html          structure and content
-style.css           custom rules: hero, skip link, drop caps, animations
+style.css           fonts, theme tokens, semantic classes, custom rules
 tailwind.css        compiled utilities — generated, do not edit by hand
 tailwind.config.js  theme tokens (slate scale, sand, gold) and content paths
+theme.js            lamp state (light / dark / system), runs blocking in head
 script.js           accordion state, scroll-triggered reveals
-assets/             grooming tutorial video
+assets/             grooming tutorial video, poster frame, hero photo, fonts
 ```
+
+Every asset is self-hosted — fonts (latin woff2 subsets), the hero photo, and
+the video poster (extracted from the tutorial video itself) — so the page has
+no runtime dependency on any third-party host.
+
+## Theming
+
+Surfaces that flip between light and dark read custom properties declared in
+`style.css` (`--pf-surface`, `--pf-ink`, …) through semantic classes
+(`pf-card`, `pf-ink-muted`, …). `theme.js` sets `html.theme-dark` before first
+paint; the dark palette swaps in one place. Panels that hold dark in both
+themes — the hero, the fit guide, the footer — keep literal utilities and
+never flip.
 
 Static deployment on Vercel; no build step at deploy time and no runtime
 dependencies. Tailwind is compiled ahead of time rather than loaded from the

@@ -6,12 +6,7 @@
     <meta name="description" content="Proper Form: A judgment-free guide to style, fit, and grooming for the modern gentleman.">
     <title>Proper Form | The Modern Gentleman's Guide</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS, compiled at build time (see README) -->
+    <!-- Fonts are self-hosted (assets/fonts); faces declared in style.css -->
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,17 +14,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="theme.js"></script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-gold selection:text-white">
+<body class="pf-page font-sans antialiased selection:bg-gold selection:text-white">
 
     <a href="#content" class="skip-link">Skip to content</a>
 
     <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+    <nav class="fixed w-full z-50 pf-nav backdrop-blur-md border-b transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-serif-custom font-bold text-2xl tracking-tight text-slate-900">
+                    <a href="#" class="font-serif-custom font-bold text-2xl tracking-tight pf-ink">
                         Proper<span class="text-gold">Form</span>
                     </a>
                 </div>
@@ -41,11 +36,11 @@
                         <button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
                         <button type="button" data-set-theme="system" aria-pressed="true">System</button>
                     </div>
-                    <a href="#seasonal" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Seasonal Style</a>
-                    <a href="#fit" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">The Fit Guide</a>
-                    <a href="#grooming" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Grooming</a>
-                    <a href="#roadmap" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors">Phase 2</a>
-                    <a href="mailto:help@windwardline.com?subject=%5BProper%20Form%5D%20Help" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-md hover:bg-gold transition-colors shadow-md">
+                    <a href="#seasonal" class="text-sm font-medium pf-ink-muted hover:text-gold transition-colors">Seasonal Style</a>
+                    <a href="#fit" class="text-sm font-medium pf-ink-muted hover:text-gold transition-colors">The Fit Guide</a>
+                    <a href="#grooming" class="text-sm font-medium pf-ink-muted hover:text-gold transition-colors">Grooming</a>
+                    <a href="#roadmap" class="text-sm font-medium pf-ink-muted hover:text-gold transition-colors">Phase 2</a>
+                    <a href="mailto:help@windwardline.com?subject=%5BProper%20Form%5D%20Help" class="px-5 py-2.5 pf-cta text-sm font-semibold rounded-md hover:bg-gold transition-colors shadow-md">
                         Contact Creator
                     </a>
                 </div>
@@ -57,7 +52,7 @@
                         <button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
                         <button type="button" data-set-theme="system" aria-pressed="true">System</button>
                     </div>
-                    <button type="button" id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" aria-expanded="false" aria-label="Toggle navigation">
+                    <button type="button" id="mobile-menu-btn" class="pf-ink-muted pf-hover-ink focus:outline-none p-2" aria-expanded="false" aria-label="Toggle navigation">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -67,18 +62,18 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden pf-sheet border-b shadow-lg absolute w-full">
             <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                <a href="#seasonal" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Seasonal Style</a>
-                <a href="#fit" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">The Fit Guide</a>
-                <a href="#grooming" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Grooming Fundamentals</a>
-                <a href="#roadmap" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-gold rounded-md">Phase 2</a>
-                <a href="mailto:help@windwardline.com?subject=%5BProper%20Form%5D%20Help" class="mobile-link block px-3 py-3 text-base font-medium text-gold bg-slate-900 rounded-md mt-2 text-center">Contact Creator</a>
+                <a href="#seasonal" class="mobile-link block px-3 py-3 text-base font-medium pf-ink-read pf-hover-wash hover:text-gold rounded-md">Seasonal Style</a>
+                <a href="#fit" class="mobile-link block px-3 py-3 text-base font-medium pf-ink-read pf-hover-wash hover:text-gold rounded-md">The Fit Guide</a>
+                <a href="#grooming" class="mobile-link block px-3 py-3 text-base font-medium pf-ink-read pf-hover-wash hover:text-gold rounded-md">Grooming Fundamentals</a>
+                <a href="#roadmap" class="mobile-link block px-3 py-3 text-base font-medium pf-ink-read pf-hover-wash hover:text-gold rounded-md">Phase 2</a>
+                <a href="mailto:help@windwardline.com?subject=%5BProper%20Form%5D%20Help" class="mobile-link block px-3 py-3 text-base font-medium pf-cta pf-cta--gold rounded-md mt-2 text-center">Contact Creator</a>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER / HERO -->
+    <!-- HEADER / HERO — holds dark in both themes -->
     <header class="hero-photo relative bg-slate-900 text-white min-h-[85vh] flex items-center justify-center pt-20 bg-cover bg-no-repeat">
         <!-- Dark gradient overlay to ensure text readability -->
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/75 to-slate-900/95"></div>
@@ -108,48 +103,48 @@
         <section id="seasonal" class="py-24 px-6 max-w-5xl mx-auto fade-in-section">
             <div class="mb-16">
                 <span class="text-gold font-bold tracking-widest uppercase text-xs">Volume 01 &mdash; Context &amp; Climate</span>
-                <h2 class="font-serif-custom text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-6">Seasonal Sartorialism.</h2>
-                <div class="w-full h-px bg-slate-300"></div>
+                <h2 class="font-serif-custom text-4xl md:text-5xl font-bold pf-ink mt-2 mb-6">Seasonal Sartorialism.</h2>
+                <div class="w-full h-px pf-rule-strong"></div>
             </div>
 
             <!-- Editorial Block 1 -->
             <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-20">
                 <div class="md:w-1/3 shrink-0">
-                    <h3 class="font-serif-custom text-3xl font-bold text-slate-900 leading-tight">The High-Summer<br><span class="text-slate-500 italic font-normal">Cipher</span></h3>
+                    <h3 class="font-serif-custom text-3xl font-bold pf-ink leading-tight">The High-Summer<br><span class="pf-ink-faint italic font-normal">Cipher</span></h3>
                 </div>
                 <div class="md:w-2/3">
-                    <p class="text-slate-700 leading-relaxed mb-6 drop-cap text-lg">
+                    <p class="pf-ink-read leading-relaxed mb-6 drop-cap text-lg">
                         July is merciless to unprepared wool. When the invitation dictates "Cocktail Attire" for a warm-weather event, you must pivot to open-weave architectures. A summer suit is not simply a lighter color; it is a fundamental shift in textile engineering. The objective is to appear effortlessly collected, not visibly suffocating.
                     </p>
-                    <div class="space-y-4 text-slate-700 border-l-2 border-gold pl-6">
-                        <p><strong class="font-bold text-slate-900">The Fabric:</strong> Embrace unlined high-twist fresco wool or linen-silk blends. You must accept the wrinkles of linen; they do not signal sloppiness, but rather a relaxed, intentional confidence.</p>
-                        <p><strong class="font-bold text-slate-900">The Palette:</strong> Sartorial daylight demands lighter tones. Rely on tobacco brown, stone grey, or French navy. Severe black under a July sun looks like a uniform, not a choice.</p>
-                        <p><strong class="font-bold text-slate-900">The Footwear:</strong> Unlined suede loafers (no-show socks are mandatory) or expertly polished calfskin derbies.</p>
+                    <div class="space-y-4 pf-ink-read border-l-2 border-gold pl-6">
+                        <p><strong class="font-bold pf-ink">The Fabric:</strong> Embrace unlined high-twist fresco wool or linen-silk blends. You must accept the wrinkles of linen; they do not signal sloppiness, but rather a relaxed, intentional confidence.</p>
+                        <p><strong class="font-bold pf-ink">The Palette:</strong> Sartorial daylight demands lighter tones. Rely on tobacco brown, stone grey, or French navy. Severe black under a July sun looks like a uniform, not a choice.</p>
+                        <p><strong class="font-bold pf-ink">The Footwear:</strong> Unlined suede loafers (no-show socks are mandatory) or expertly polished calfskin derbies.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="w-24 h-px bg-slate-200 mx-auto mb-20"></div>
+            <div class="w-24 h-px pf-rule mx-auto mb-20"></div>
 
             <!-- Editorial Block 2 -->
             <div class="flex flex-col md:flex-row gap-8 md:gap-16">
                 <div class="md:w-1/3 shrink-0">
-                    <h3 class="font-serif-custom text-3xl font-bold text-slate-900 leading-tight">The Corporate<br><span class="text-slate-500 italic font-normal">Arena</span></h3>
+                    <h3 class="font-serif-custom text-3xl font-bold pf-ink leading-tight">The Corporate<br><span class="pf-ink-faint italic font-normal">Arena</span></h3>
                 </div>
                 <div class="md:w-2/3">
-                    <p class="text-slate-700 leading-relaxed mb-6 drop-cap text-lg">
+                    <p class="pf-ink-read leading-relaxed mb-6 drop-cap text-lg">
                         Authority is quiet. In the corporate arena, the objective is psychological presence through immaculate restraint. You want to be remembered for your intellect and capability, not a novelty accessory or a loud pattern. Precision is your primary currency, and fit is your armor.
                     </p>
-                    <div class="space-y-4 text-slate-700 border-l-2 border-gold pl-6">
-                        <p><strong class="font-bold text-slate-900">The Suit:</strong> Navy or charcoal two-piece in worsted wool. Demand at least a half-canvas construction so the lapel rolls elegantly over your chest rather than creasing flat and lifeless.</p>
-                        <p><strong class="font-bold text-slate-900">The Geometry:</strong> A crisp white semi-spread collar must sit flush against your collarbone, its points tucked cleanly under the jacket lapel. A visible gap suggests a borrowed or ill-fitting shirt.</p>
-                        <p><strong class="font-bold text-slate-900">The Details:</strong> Match your leathers ruthlessly. Tie width must harmonize perfectly with your jacket's lapel width. Opt for a textured silk grenadine tie for quiet, undeniable authority.</p>
+                    <div class="space-y-4 pf-ink-read border-l-2 border-gold pl-6">
+                        <p><strong class="font-bold pf-ink">The Suit:</strong> Navy or charcoal two-piece in worsted wool. Demand at least a half-canvas construction so the lapel rolls elegantly over your chest rather than creasing flat and lifeless.</p>
+                        <p><strong class="font-bold pf-ink">The Geometry:</strong> A crisp white semi-spread collar must sit flush against your collarbone, its points tucked cleanly under the jacket lapel. A visible gap suggests a borrowed or ill-fitting shirt.</p>
+                        <p><strong class="font-bold pf-ink">The Details:</strong> Match your leathers ruthlessly. Tie width must harmonize perfectly with your jacket's lapel width. Opt for a textured silk grenadine tie for quiet, undeniable authority.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- THE FIT GUIDE (Interactive) -->
+        <!-- THE FIT GUIDE (Interactive) — holds dark in both themes -->
         <section id="fit" class="py-24 px-6 bg-slate-900 text-white">
             <div class="max-w-4xl mx-auto fade-in-section">
                 <div class="mb-12">
@@ -214,26 +209,26 @@
             <div class="flex flex-col md:flex-row items-center gap-16">
                 <div class="md:w-1/2">
                     <span class="text-gold font-bold tracking-widest uppercase text-xs">Volume 03 &mdash; The Canvas</span>
-                    <h2 class="font-serif-custom text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-8">Grooming Fundamentals.</h2>
-                    <p class="text-slate-700 mb-8 leading-relaxed text-lg">
+                    <h2 class="font-serif-custom text-4xl md:text-5xl font-bold pf-ink mt-2 mb-8">Grooming Fundamentals.</h2>
+                    <p class="pf-ink-read mb-8 leading-relaxed text-lg">
                         Clothing merely covers the body; your grooming is the absolute focal point of human interaction. A flawless, tailored suit cannot out-maneuver an unkempt neckline, dry skin, or poorly managed hair.
                     </p>
                     <div class="space-y-6">
-                        <div class="pl-6 border-l-2 border-slate-200">
-                            <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-2">The Architectural Beard Line</h4>
-                            <p class="text-slate-600 leading-relaxed"><strong class="text-slate-800">The Two-Finger Rule:</strong> Place two fingers horizontally directly above your Adam's apple. That is your baseline. Shave everything below it bare. A neckbeard eradicates the jawline; a precise fade creates immediate architectural structure for your face.</p>
+                        <div class="pl-6 border-l-2 pf-border">
+                            <h4 class="font-serif-custom font-bold pf-ink text-xl mb-2">The Architectural Beard Line</h4>
+                            <p class="pf-ink-muted leading-relaxed"><strong class="pf-ink-body">The Two-Finger Rule:</strong> Place two fingers horizontally directly above your Adam's apple. That is your baseline. Shave everything below it bare. A neckbeard eradicates the jawline; a precise fade creates immediate architectural structure for your face.</p>
                         </div>
-                        <div class="pl-6 border-l-2 border-slate-200">
-                            <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-2">The Invisible Armor</h4>
-                            <p class="text-slate-600 leading-relaxed"><strong class="text-slate-800">Skincare Protocol:</strong> Abandon harsh bar soaps immediately. Utilize a dedicated chemical exfoliant cleanser followed by an SPF 30+ moisturizer. Dull, ashy, or inflamed skin reflects poorly under abrasive office lighting. Treat your dermis like an asset.</p>
+                        <div class="pl-6 border-l-2 pf-border">
+                            <h4 class="font-serif-custom font-bold pf-ink text-xl mb-2">The Invisible Armor</h4>
+                            <p class="pf-ink-muted leading-relaxed"><strong class="pf-ink-body">Skincare Protocol:</strong> Abandon harsh bar soaps immediately. Utilize a dedicated chemical exfoliant cleanser followed by an SPF 30+ moisturizer. Dull, ashy, or inflamed skin reflects poorly under abrasive office lighting. Treat your dermis like an asset.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Native Video Asset -->
                 <div class="md:w-1/2 w-full">
-    <div class="relative rounded-sm overflow-hidden shadow-2xl border border-slate-200 bg-black aspect-video flex items-center justify-center group">
-        <video autoplay loop muted class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1621509307736-6e541a029314?q=80&amp;w=2070&amp;auto=format&amp;fit=crop">
+    <div class="relative rounded-sm overflow-hidden shadow-2xl border pf-border bg-black aspect-video flex items-center justify-center group">
+        <video autoplay loop muted class="w-full h-full object-cover" poster="assets/beard-fade-poster.jpg">
             <source src="assets/beard-fade-tutorial.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -244,39 +239,39 @@
         </section>
 
         <!-- ROADMAP / COMING SOON SECTION -->
-        <section id="roadmap" class="py-20 px-6 bg-slate-100 border-t border-slate-200">
+        <section id="roadmap" class="py-20 px-6 pf-band border-t pf-border">
             <div class="max-w-6xl mx-auto fade-in-section">
                 <div class="text-center mb-16">
-                    <h2 class="font-serif-custom text-3xl md:text-4xl font-bold text-slate-900 mb-4">Phase 02: In Development</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto">We are actively engineering the next generation of style tools. Here is what is landing in the next software update.</p>
+                    <h2 class="font-serif-custom text-3xl md:text-4xl font-bold pf-ink mb-4">Phase 02: In Development</h2>
+                    <p class="pf-ink-faint max-w-2xl mx-auto">We are actively engineering the next generation of style tools. Here is what is landing in the next software update.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                    <div class="pf-card p-8 border-t-2 pf-border hover:border-gold transition-colors">
                         <div class="text-slate-300 mb-6">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Visual AI Fit Checker</h4>
-                        <p class="text-slate-600 leading-relaxed text-sm">Upload a mirror photo for automated, algorithmic feedback on jacket drape, collar gap, and trouser break.</p>
+                        <h4 class="font-serif-custom font-bold pf-ink text-xl mb-3">Visual AI Fit Checker</h4>
+                        <p class="pf-ink-muted leading-relaxed text-sm">Upload a mirror photo for automated, algorithmic feedback on jacket drape, collar gap, and trouser break.</p>
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                    <div class="pf-card p-8 border-t-2 pf-border hover:border-gold transition-colors">
                         <div class="text-slate-300 mb-6">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                         </div>
-                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Curated Toolsets</h4>
-                        <p class="text-slate-600 leading-relaxed text-sm">Integrated API fetching for verified, affordable tailoring tools, precision clippers, and entry-level shirting.</p>
+                        <h4 class="font-serif-custom font-bold pf-ink text-xl mb-3">Curated Toolsets</h4>
+                        <p class="pf-ink-muted leading-relaxed text-sm">Integrated API fetching for verified, affordable tailoring tools, precision clippers, and entry-level shirting.</p>
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="bg-white p-8 border-t-2 border-slate-200 hover:border-gold transition-colors">
+                    <div class="pf-card p-8 border-t-2 pf-border hover:border-gold transition-colors">
                         <div class="text-slate-300 mb-6">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                        <h4 class="font-serif-custom font-bold text-slate-900 text-xl mb-3">Fabric Care DB</h4>
-                        <p class="text-slate-600 leading-relaxed text-sm">A highly searchable database for textile maintenance, precise stain removal, and seasonal storage protocols.</p>
+                        <h4 class="font-serif-custom font-bold pf-ink text-xl mb-3">Fabric Care DB</h4>
+                        <p class="pf-ink-muted leading-relaxed text-sm">A highly searchable database for textile maintenance, precise stain removal, and seasonal storage protocols.</p>
                     </div>
                 </div>
             </div>
@@ -284,7 +279,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER — holds dark in both themes -->
     <footer class="bg-slate-950 border-t border-slate-900 py-12 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <div class="mb-6 md:mb-0 flex flex-col text-center md:text-left">
@@ -293,7 +288,7 @@
             </div>
             <div class="flex space-x-6">
                 <!-- GitHub Repository Link -->
-                <a href="https://github.com/windwardline/proper-form-style-guide" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-gold transition-colors" aria-label="GitHub Repository">
+                <a href="https://github.com/windwardline/proper-form" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-gold transition-colors" aria-label="GitHub Repository">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
             </div>
