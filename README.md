@@ -2,6 +2,8 @@
 
 Live: **[proper-form.windwardline.com](https://proper-form.windwardline.com)**
 
+![Proper Form's hero: Master the Details. Elevate Your Presence.](assets/readme-hero.png)
+
 A judgment-free guide to menswear fit, seasonal fabric, and grooming for men
 who were never taught the basics — written for first-job interviews, reentry
 after incarceration, and summer weddings alike. The design follows editorial
