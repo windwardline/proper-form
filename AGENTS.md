@@ -8,7 +8,7 @@ Serve statically (`python3 -m http.server`). Rebuild CSS after adding utility cl
 
 ## Gates
 
-CI is html-validate plus `script.js` syntax — nothing validates CSS, other pages, or links. Push to main deploys production.
+CI is html-validate plus `script.js` syntax — nothing validates CSS, other pages, or links. Push to main deploys production. A parallel `security.yml` (PRs, pushes, weekly cron) gates Semgrep and secret scan; a post-deploy job asserts the production security headers.
 
 ## Laws
 
