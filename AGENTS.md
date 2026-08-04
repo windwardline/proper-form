@@ -8,7 +8,7 @@ Serve statically (`python3 -m http.server`). Rebuild CSS after adding utility cl
 
 ## Gates
 
-CI is html-validate plus `script.js` syntax — nothing validates CSS, other pages, or links. Push to main deploys production. A parallel `security.yml` (PRs, pushes, weekly cron) gates Semgrep and secret scan; a post-deploy job asserts the production security headers.
+CI is html-validate plus `script.js` syntax — nothing validates CSS, other pages, or links. Push to main deploys production. A parallel `security.yml` (PRs, pushes, weekly cron) gates Semgrep and secret scan; a post-deploy job asserts the production security headers. An advisory Claude review runs on every PR (`claude-review.yml`, activating once the `ANTHROPIC_API_KEY` repo secret exists).
 
 ## Laws
 
