@@ -1,6 +1,6 @@
 # Proper Form — operating contract
 
-Operating contract for AI work in this repo; the global `~/AGENTS.md` still applies. Proper Form is a judgment-free editorial guide to menswear fit, seasonal fabric, and grooming — first interviews, reentry, weddings. Live at proper-form.windwardline.com. Static, zero runtime dependencies, Tailwind compiled ahead of time.
+Operating contract for AI work in this repo; the global `~/AGENTS.md` still applies. Work here follows the CONVERGE cycle and delivery discipline in `FLEET.md` (windwardline/windwardline) — find → refute → verify yourself → fix → re-rank → test → update → report, and the delivery rules under it. Proper Form is a judgment-free editorial guide to menswear fit, seasonal fabric, and grooming — first interviews, reentry, weddings. Live at proper-form.windwardline.com. Static, zero runtime dependencies, Tailwind compiled ahead of time.
 
 ## Commands
 
